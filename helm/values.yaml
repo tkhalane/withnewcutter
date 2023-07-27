@@ -1,0 +1,32 @@
+replicaCount: '2'
+image:
+  repository: tkhalane/mtnx-demo
+  pullPolicy: Always
+  tag: 8f6a6416b2f23199a000a541b19432edff9b2b5c
+fullnameOverride: mtnx-demo
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ''
+service:
+  type: LoadBalancer
+  port: 8080
+ingress:
+  enabled: false
+  className: ''
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+resources: {}
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+nodeSelector: {}
+tolerations: []
+affinity: {}
